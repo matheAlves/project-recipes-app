@@ -42,8 +42,17 @@
 }
 
 .btnStartRecipe {
-  background-color: rgb(20, 209, 20);
-  bottom: 0;
-  position: fixed;
+  background-color: aliceblue;
+  border: solid 1px brown;
+  border-radius: 13%;
+  box-shadow: inset 0 0 1em rgb(199, 216, 231) , 0 0 1em red;
+  color: brown;
+  margin-bottom: 15px;
+  margin-left: 85px;
+  width: 135px;
 }
 
+.bottom {
+  display: flex;
+  justify-content: center;
+}

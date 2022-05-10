@@ -111,7 +111,7 @@ function RecipeDetails() {
       </div>
       { startRecipe
         && (
-          <div>
+          <div className="bottom">
             <Link to={ `/foods/${recipeDetails.idMeal}/in-progress` }>
               <button
                 type="button"
@@ -171,7 +171,7 @@ function RecipeDetails() {
       </div>
       { startRecipe
         && (
-          <div>
+          <div className="bottom">
             <Link to={ `/drinks/${recipeDetails.idDrink}/in-progress` }>
               <button
                 type="button"
