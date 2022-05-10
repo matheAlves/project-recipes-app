@@ -4,12 +4,20 @@
   color: azure;
   display: flex;
   justify-content: space-around;
-  padding: 6px 0;
-  /* position: fixed; */
+  padding: 8px 0;
   text-align: center;
   width: 100%;
-
 }
+
+.nav h1 {
+  /* font-family: Life Savers , sans-serif; */
+  font-family: Ubuntu , sans-serif;
+  /* font-family: Asap , sans-serif; */
+  /* font-size: 45px; */
+  /* letter-spacing: 1px; */
+  /* font-weight: 400; */
+}
+
 
 .profile {
   filter: invert(100%);
@@ -29,8 +37,6 @@
 
 .search {
   filter: invert(100%);
-  /* height: 17px;
-  width: 10px; */
 }
 
 .invisiblebtn {
