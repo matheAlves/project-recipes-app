@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Context from '../context/Context';
+import './RecommendationCard.css';
 
 function RecomendationCard() {
   const {
@@ -15,11 +16,12 @@ function RecomendationCard() {
 
   const recommendationFoodCard = () => recommendations
     .map((recomendation, index) => (
-      <div key={ index } data-testid={ `${index}-recomendation-card` }>
+      <div key={ index } data-testid={ `${index}-recomendation-card` } className="cards">
         <img
           src={ recomendation.strMealThumb }
           alt="recipe_photo"
           data-testid={ `${index}-recomendation-photo` }
+          className="image-card"
         />
         <title
           data-testid={ `${index}-recomendation-title` }
@@ -36,11 +38,12 @@ function RecomendationCard() {
 
   const recommendationDrinkCard = () => recommendations
     .map((recomendation, index) => (
-      <div key={ index } data-testid={ `${index}-recomendation-card` }>
+      <div key={ index } data-testid={ `${index}-recomendation-card` } className="cards">
         <img
           src={ recomendation.strDrinkThumb }
           alt="recipe_photo"
           data-testid={ `${index}-recomendation-photo` }
+          className="image-card"
         />
         <title
           data-testid={ `${index}-recomendation-title` }

@@ -105,8 +105,8 @@ function RecipeDetails() {
       >
         { recipeDetails.strYoutube }
       </iframe>
+      <h3>Recommended</h3>
       <div className="horizontalScroll">
-        <h3>Recommended</h3>
         <RecomendationCard />
       </div>
       { startRecipe
@@ -165,8 +165,8 @@ function RecipeDetails() {
       <span className="recipeInstructions" data-testid="instructions">
         {recipeDetails.strInstructions}
       </span>
+      <h3>Recommended</h3>
       <div className="horizontalScroll">
-        <h3>Recommended</h3>
         <RecomendationCard />
       </div>
       { startRecipe

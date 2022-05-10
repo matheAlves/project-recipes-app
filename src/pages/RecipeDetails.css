@@ -38,7 +38,7 @@
 .horizontalScroll {
   display: flex;
   overflow: auto;
-  width: 1080px;
+  width: 100%;
 }
 
 .btnStartRecipe {
