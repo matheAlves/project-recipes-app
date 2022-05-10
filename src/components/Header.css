@@ -10,10 +10,10 @@
 }
 
 .nav h1 {
-  /* font-family: Life Savers , sans-serif; */
-  font-family: Ubuntu , sans-serif;
+  font-family: Life Savers , sans-serif;
+  /* font-family: Ubuntu , sans-serif; */
   /* font-family: Asap , sans-serif; */
-  /* font-size: 45px; */
+  font-size: 35px;
   /* letter-spacing: 1px; */
   /* font-weight: 400; */
 }
@@ -25,14 +25,12 @@
 
 .profilebtn {
   border-radius: 20%;
-  box-shadow: inset 0 0 1em rgb(199, 216, 231) , 0 0 1em rgb(255, 25, 25);
-  margin-left: 5px;
-  margin-right: 3px;
+  margin: 5px 3px 5px 5px;
 }
 
 .searchbtn {
   border-radius: 20%;
-  box-shadow: inset 0 0 1em rgb(199, 216, 231) , 0 0 1em rgb(255, 25, 25);
+  margin: 5px 3px 5px 5px;
 }
 
 .search {
@@ -43,8 +41,7 @@
   visibility: hidden;
 }
 
-.titulo {
+h1 {
   font-size: large;
-  margin-top: 2px;
-  position: fixed;
+  margin-top: 5px;
 }

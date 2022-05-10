@@ -105,13 +105,13 @@ function RecipeDetails() {
       >
         { recipeDetails.strYoutube }
       </iframe>
+      <h3>Recommended</h3>
       <div className="horizontalScroll">
-        <h3>Recommended</h3>
         <RecomendationCard />
       </div>
       { startRecipe
         && (
-          <div>
+          <div className="bottom">
             <Link to={ `/foods/${recipeDetails.idMeal}/in-progress` }>
               <button
                 type="button"
@@ -165,13 +165,13 @@ function RecipeDetails() {
       <span className="recipeInstructions" data-testid="instructions">
         {recipeDetails.strInstructions}
       </span>
+      <h3>Recommended</h3>
       <div className="horizontalScroll">
-        <h3>Recommended</h3>
         <RecomendationCard />
       </div>
       { startRecipe
         && (
-          <div>
+          <div className="bottom">
             <Link to={ `/drinks/${recipeDetails.idDrink}/in-progress` }>
               <button
                 type="button"

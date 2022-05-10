@@ -1,0 +1,11 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.image-card {
+  height: 200px;
+  width: 200px;
+}
