@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import DoneRecipeCard from '../components/DoneRecipeCard';
+import DoneRecipeCard from '../components/DoneRecipeCard';
 import Header from '../components/Header';
 
 function DoneRecipes() {
-  // const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
-  // console.log(doneRecipes);
+  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+  const [dones, setDones] = useState(doneRecipes);
+
+  useEffect(() => {
+    setDones(doneRecipes);
+  }, [doneRecipes]);
+
+  console.log(dones);
 
   return (
     <div>
@@ -32,7 +38,21 @@ function DoneRecipes() {
           Drink
         </button>
       </Link>
-      {/* <DoneRecipeCard /> */}
+      {!dones
+        ? <h1>No done recipes saved</h1>
+        : (
+          <>
+            {dones.map(
+              (recipe, index) => (
+                <DoneRecipeCard
+                  key={ index }
+                  recipe={ recipe }
+                  index={ index }
+                />
+              ),
+            )}
+          </>
+        )}
     </div>
   );
 }
