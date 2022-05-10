@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './DoneRecipeCard.css';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 
@@ -20,8 +21,8 @@ function DoneRecipeCard(props) {
 
   if (recipe.image.includes('themealdb')) {
     return (
-      <div key={ recipe.name }>
-        <Link to={ recipe.copyLink }>
+      <div key={ recipe.name } className="recipe-card">
+        <Link to={ `/foods/${recipe.id}` }>
           <img
             src={ recipe.image }
             alt="recipe"
@@ -35,7 +36,7 @@ function DoneRecipeCard(props) {
           {' '}
           {recipe.category}
         </p>
-        <Link to={ recipe.copyLink }>
+        <Link to={ `/foods/${recipe.id}` }>
           <h2 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h2>
         </Link>
         <p data-testid={ `${index}-horizontal-done-date` }>
@@ -74,8 +75,8 @@ function DoneRecipeCard(props) {
   }
   if (recipe.image.includes('thecocktaildb')) {
     return (
-      <div key={ recipe.name }>
-        <Link to={ recipe.copyLink }>
+      <div key={ recipe.name } className="recipe-card">
+        <Link to={ `/drinks/${recipe.id}` }>
           <img
             src={ recipe.image }
             alt="recipe"
@@ -87,7 +88,7 @@ function DoneRecipeCard(props) {
           {' '}
           {recipe.category}
         </p>
-        <Link to={ recipe.copyLink }>
+        <Link to={ `/drinks/${recipe.id}` }>
           <h2 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h2>
         </Link>
         <p data-testid={ `${index}-horizontal-done-date` }>
