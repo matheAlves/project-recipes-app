@@ -15,6 +15,7 @@ import RecipeDetailsProvider from './context/RecipeDetailsProvider';
 import IngredientsProvider from './context/IngredientsProvider';
 import ExploreIngredients from './pages/ExploreIngredients';
 import ExploreNationality from './pages/ExploreNationality';
+import FavoriteRecipes from './pages/FavoriteRecipes';
 import NotFound from './pages/NotFound';
 import DoneRecipes from './pages/DoneRecipes';
 
@@ -110,6 +111,11 @@ function App() {
           exact
           path="/done-recipes"
           component={ DoneRecipes }
+        />
+        <Route
+          exact
+          path="/favorite-recipes"
+          component={ FavoriteRecipes }
         />
         <Route
           path="*"

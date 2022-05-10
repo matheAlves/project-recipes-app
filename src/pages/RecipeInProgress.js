@@ -11,20 +11,21 @@ function RecipeInProgress() {
     inPro, getRecipeDetails } = useContext(Context);
   const [disable, setDisable] = useState(true);
   const location = useLocation();
-  const copiedLink = location.pathname.replace('/in-progress', '');
 
   useEffect(() => {
     getRecipeDetails(location.pathname);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
+  const copiedLink = location.pathname.replace('/in-progress', '');
+  const url = 'http://localhost:3000'.concat(copiedLink);
+  console.log(copiedLink);
+
   const shareRecipe = () => {
-    const url = 'http://localhost:3000'.concat(copiedLink);
     navigator.clipboard.writeText(url);
     document.getElementById('link-copied').innerHTML = 'Link copied!';
   };
 
-  // console.log(inPro);
   const keysIngredients = Object.keys(inPro)
     .filter((keyObject) => keyObject.includes('strIngredient'));
   const arrayAllItems = keysIngredients
@@ -37,6 +38,54 @@ function RecipeInProgress() {
       .includes('idMeal') ? 'meals' : 'cocktails';
     const recipeId = inPro.idMeal ? inPro.idMeal : inPro.idDrink;
     setDisable(!allChecked(recipeType, recipeId, arrayOfKeysIngredients));
+  };
+
+  const handleClickMeal = () => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const doneObject = {
+      typed: 'meal',
+      id: inPro.idMeal,
+      type: inPro.strMeal,
+      nationality: inPro.strArea,
+      category: inPro.strCategory,
+      name: inPro.strMeal,
+      image: inPro.strMealThumb,
+      doneDate: Date(),
+      tags: inPro.strTags,
+      link: url,
+      copyLink: copiedLink,
+    };
+    if (doneRecipes) {
+      const getObjectDone = [...doneRecipes, doneObject];
+      localStorage.setItem('doneRecipes', JSON.stringify(getObjectDone));
+    }
+    if (!doneRecipes) {
+      localStorage.setItem('doneRecipes', JSON.stringify([doneObject]));
+    }
+  };
+
+  const handleClickDrink = () => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const doneObject = {
+      typed: 'drink',
+      id: inPro.Drink,
+      type: inPro.strGlass,
+      category: inPro.strCategory,
+      alcoholicOrNot: inPro.strAlcoholic,
+      name: inPro.strDrink,
+      image: inPro.strDrinkThumb,
+      doneDate: Date(),
+      link: url,
+      copyLink: copiedLink,
+    };
+    console.log(copiedLink);
+    if (doneRecipes) {
+      const getObjectDone = [...doneRecipes, doneObject];
+      localStorage.setItem('doneRecipes', JSON.stringify(getObjectDone));
+    }
+    if (!doneRecipes) {
+      localStorage.setItem('doneRecipes', JSON.stringify([doneObject]));
+    }
   };
 
   const renderFood = () => (
@@ -92,6 +141,7 @@ function RecipeInProgress() {
           data-testid="finish-recipe-btn"
           type="button"
           disabled={ disable }
+          onClick={ handleClickMeal }
         >
           Finalizar Receita
         </button>
@@ -99,6 +149,8 @@ function RecipeInProgress() {
 
     </div>
   );
+
+  console.log(inPro);
 
   const renderDrink = () => (
     <div>
@@ -153,6 +205,7 @@ function RecipeInProgress() {
           data-testid="finish-recipe-btn"
           type="button"
           disabled={ disable }
+          onClick={ handleClickDrink }
         >
           Finalizar Receita
         </button>

@@ -1,59 +1,61 @@
-// import React from 'react';
+import React from 'react';
+// import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
-// import { useLocation, Link } from 'react-router-dom';
+import shareIcon from '../images/shareIcon.svg';
 
-// function DoneRecipeeCard(props) {
-//   const location = useLocation();
+function DoneRecipeCard() {
+  // const { doneRecipes } = props;
+  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+  const shareRecipe = (recipe) => {
+    const { link } = recipe;
+    // document.getElementById('link-copied').innerHTML = 'Link copied!';
+    return (navigator.clipboard.writeText(link));
+  };
 
-//   const { index } = props;
+  return (
+    doneRecipes.map((recipe, index) => (
+      <div key={ index }>
+        <img
+          src={ recipe.image }
+          alt="recipe"
+          data-testid={ `${index}-horizontal-image` }
+        />
+        <p data-testid={ `${index}-horizontal-top-text` }>
+          {recipe.alcoholicOrNot}
+          {' '}
+          {recipe.nationality}
+          {' '}
+          -
+          {' '}
+          {recipe.category}
+        </p>
+        <h2 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h2>
+        <p data-testid={ `${index}-horizontal-done-date` }>
+          Done recipe in :
+          {recipe.doneDate}
+        </p>
+        <button
+          type="button"
+          onClick={ shareRecipe(recipe) }
+        >
+          <img
+            className="img-share"
+            data-testid={ `${index}-horizontal-share-btn` }
+            src={ shareIcon }
+            alt="share_icon"
+          />
+        </button>
+        <p id="link-copied" />
+        <p>{recipe.type }</p>
+        <p key={ index } data-testid={ `${index}-${recipe.tags[0]}-horizontal-tag` }>
+          {recipe.tags[0]}
+        </p>
+        <p key={ index } data-testid={ `${index}-${recipe.tags[1]}-horizontal-tag` }>
+          {recipe.tags[1]}
+        </p>
+      </div>
+    ))
+  );
+}
 
-//   if (location.pathname.includes('foods')) {
-//     const { meal: { strMeal, strMealThumb, idMeal } } = props;
-//     return (
-//       <Link to={ `/foods/${idMeal}` } className="recipe-card">
-//         <li
-//           data-testid={ `${index}-recipe-card` }
-//         >
-//           <img
-//             src={ strMealThumb }
-//             alt="meal"
-//             data-testid={ `${index}-card-img` }
-//           />
-//           <p
-//             data-testid={ `${index}-card-name` }
-//           >
-//             {strMeal}
-//           </p>
-//         </li>
-//       </Link>
-
-//     );
-//   } if (location.pathname.includes('drinks')) {
-//     // const { meal: { strDrink, strDrinkThumb, idDrink } } = props;
-//     return (
-//       <Link to={ `/drinks/${idDrink}` } className="recipe-card">
-//         <li
-//           data-testid={ `${index}-recipe-card` }
-//         >
-//           <img
-//             src={ strDrinkThumb }
-//             alt="drink"
-//             data-testid={ `${index}-card-img` }
-//           />
-//           <p
-//             data-testid={ `${index}-card-name` }
-//           >
-//             {strDrink}
-//           </p>
-//         </li>
-//       </Link>
-//     );
-//   }
-// }
-
-// RecipeeCard.propTypes = {
-//   index: PropTypes.number.isRequired,
-//   meal: PropTypes.objectOf(PropTypes.string).isRequired,
-// };
-
-// export default DoneRecipeeCard;
+export default DoneRecipeCard;
