@@ -5,7 +5,6 @@ import Header from '../components/Header';
 
 function DoneRecipes() {
   const [dones, setDones] = useState();
-  console.log(dones);
 
   useEffect(() => {
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -15,28 +14,26 @@ function DoneRecipes() {
   return (
     <div>
       <Header title="Done Recipes" />
+      <Link to="/done-recipes">
+        <button
+          type="button"
+          data-testid="filter-by-all-btn"
+        >
+          All
+        </button>
+      </Link>
       <button
         type="button"
-        data-testid="filter-by-all-btn"
+        data-testid="filter-by-food-btn"
       >
-        All
+        Food
       </button>
-      <Link to="/foods">
-        <button
-          type="button"
-          data-testid="filter-by-food-btn"
-        >
-          Food
-        </button>
-      </Link>
-      <Link to="/drinks">
-        <button
-          type="button"
-          data-testid="filter-by-drink-btn"
-        >
-          Drink
-        </button>
-      </Link>
+      <button
+        type="button"
+        data-testid="filter-by-drink-btn"
+      >
+        Drink
+      </button>
       {!dones
         ? <h1>No done recipes saved</h1>
         : (
