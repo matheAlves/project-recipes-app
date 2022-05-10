@@ -13,7 +13,7 @@ function Explore() {
       <div className="botoes">
         <button
           type="button"
-          className="foodsbtn"
+          className="explore-btn"
           data-testid="explore-foods"
           onClick={ () => history.push('/explore/foods') }
         >
@@ -21,14 +21,14 @@ function Explore() {
         </button>
         <button
           type="button"
-          className="drinksbtn"
+          className="explore-btn"
           data-testid="explore-drinks"
           onClick={ () => history.push('/explore/drinks') }
         >
           Explore Drinks
         </button>
+        <img className="foods" src={ foods } alt="foods" />
       </div>
-      <img className="foods" src={ foods } alt="foods" />
       <Footer />
     </div>
   );

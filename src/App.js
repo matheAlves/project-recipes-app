@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Provider from './context/Provider';
 import Login from './pages/Login';
 import RecipeesList from './pages/RecipeesList';
@@ -15,17 +15,19 @@ import RecipeDetailsProvider from './context/RecipeDetailsProvider';
 import IngredientsProvider from './context/IngredientsProvider';
 import ExploreIngredients from './pages/ExploreIngredients';
 import ExploreNationality from './pages/ExploreNationality';
-import NotFound from './components/NotFound';
+import FavoriteRecipes from './pages/FavoriteRecipes';
+import NotFound from './pages/NotFound';
 import DoneRecipes from './pages/DoneRecipes';
 
 function App() {
   return (
-    <Switch>
-      <Provider>
+    <Provider>
+      <Switch>
         <Route
           exact
           path="/"
           component={ Login }
+          // render={ (props) => (<Provider><Login { ...props } /></Provider>) }
         />
         <Route
           exact
@@ -67,30 +69,39 @@ function App() {
           path="/explore/drinks"
           component={ ExploreDrinks }
         />
-        <RecipeDetailsProvider>
-          <Route
-            exact
-            path="/foods/:id"
-            component={ RecipeDetails }
-          />
-          <Route
-            exact
-            path="/drinks/:id"
-            component={ RecipeDetails }
-          />
-        </RecipeDetailsProvider>
-        <IngredientsProvider>
-          <Route
-            exact
-            path="/drinks/:id/in-progress"
-            component={ RecipeInProgress }
-          />
-          <Route
-            exact
-            path="/foods/:id/in-progress"
-            component={ RecipeInProgress }
-          />
-        </IngredientsProvider>
+        <Route
+          exact
+          path="/foods/:id"
+        >
+          <RecipeDetailsProvider>
+            <RecipeDetails />
+          </RecipeDetailsProvider>
+        </Route>
+        <Route
+          exact
+          path="/drinks/:id"
+        >
+          <RecipeDetailsProvider>
+            <RecipeDetails />
+          </RecipeDetailsProvider>
+        </Route>
+
+        <Route
+          exact
+          path="/drinks/:id/in-progress"
+        >
+          <IngredientsProvider>
+            <RecipeInProgress />
+          </IngredientsProvider>
+        </Route>
+        <Route
+          exact
+          path="/foods/:id/in-progress"
+        >
+          <IngredientsProvider>
+            <RecipeInProgress />
+          </IngredientsProvider>
+        </Route>
         <Route
           exact
           path="/explore/drinks/ingredients"
@@ -101,12 +112,17 @@ function App() {
           path="/done-recipes"
           component={ DoneRecipes }
         />
-      </Provider>
-      <Route
-        path="*"
-        component={ NotFound }
-      />
-    </Switch>
+        <Route
+          exact
+          path="/favorite-recipes"
+          component={ FavoriteRecipes }
+        />
+        <Route
+          path="*"
+          component={ NotFound }
+        />
+      </Switch>
+    </Provider>
   );
 }
 

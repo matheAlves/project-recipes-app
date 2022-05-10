@@ -18,8 +18,6 @@ function RecomendationCard() {
       <div key={ index } data-testid={ `${index}-recomendation-card` }>
         <img
           src={ recomendation.strMealThumb }
-          width="100px"
-          height="100px"
           alt="recipe_photo"
           data-testid={ `${index}-recomendation-photo` }
         />

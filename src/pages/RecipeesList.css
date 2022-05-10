@@ -1,4 +1,5 @@
 .recipes {
+  background-color: rgb(247, 247, 231);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -6,6 +7,7 @@
 }
 
 .recipe-card {
+  background-color: white;
   border-radius: 6px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   margin: 9px 0 4.9px;

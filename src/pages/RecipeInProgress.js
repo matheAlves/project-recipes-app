@@ -1,70 +1,98 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import './RecipeInProgress.css';
 import './RecipeDetails.css';
-import InProgress from '../components/InProgress';
 import shareIcon from '../images/shareIcon.svg';
+import CheckboxIngredients from '../components/CheckboxIngredients';
 import Context from '../context/Context';
 
 function RecipeInProgress() {
-  const [inPro, setInPro] = useState([]);
+  const { allChecked, favoriteOnClick, favoriteIcon,
+    inPro, getRecipeDetails } = useContext(Context);
   const [disable, setDisable] = useState(true);
-  const { id } = useParams();
   const location = useLocation();
-  const copiedLink = location.pathname.replace('/in-progress', '');
-  console.log(setDisable);
-
-  const { stateAllChecked } = useContext(Context);
 
   useEffect(() => {
-    async function apiRecipeByIdFood() {
-      const endpoint = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
-      const response = await fetch(endpoint);
-      const result = await response.json();
-      const preResult = result.meals;
-      return preResult[0];
-    }
+    getRecipeDetails(location.pathname);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
-    async function apiRecipeByIdDrink() {
-      const endpoint = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
-      const response = await fetch(endpoint);
-      const result = await response.json();
-      const preResult = result.drinks;
-      return preResult[0];
-    }
-    // console.log(id);
-    const getRecipeDetails = async () => {
-      if (location.pathname.includes('food')) {
-        const apiRecipeDetails = await apiRecipeByIdFood();
-        setInPro(apiRecipeDetails);
-      }
-      if (location.pathname.includes('drink')) {
-        const apiRecipeDetails = await apiRecipeByIdDrink();
-        setInPro(apiRecipeDetails);
-      }
-    };
-    getRecipeDetails();
-  }, [location, id]);
+  const copiedLink = location.pathname.replace('/in-progress', '');
+  const url = 'http://localhost:3000'.concat(copiedLink);
+  console.log(copiedLink);
 
   const shareRecipe = () => {
-    const url = 'http://localhost:3000'.concat(copiedLink);
     navigator.clipboard.writeText(url);
     document.getElementById('link-copied').innerHTML = 'Link copied!';
   };
 
-  const handleClick = () => {
-    <Link to="/doneRecipes" />;
+  const keysIngredients = Object.keys(inPro)
+    .filter((keyObject) => keyObject.includes('strIngredient'));
+  const arrayAllItems = keysIngredients
+    .map((keyObject) => inPro[keyObject]);
+  const arrayOfKeysIngredients = arrayAllItems
+    .filter((keyFiltered) => keyFiltered !== null && keyFiltered !== '');
+
+  const verifyAllChecked = () => {
+    const recipeType = Object.keys(inPro)
+      .includes('idMeal') ? 'meals' : 'cocktails';
+    const recipeId = inPro.idMeal ? inPro.idMeal : inPro.idDrink;
+    setDisable(!allChecked(recipeType, recipeId, arrayOfKeysIngredients));
   };
 
-  // const disableBtn = () => {
-  //   if (CheckboxIngredients === true) {
+  console.log(inPro);
+  const handleClickMeal = () => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const doneObject = {
+      typed: 'meal',
+      id: inPro.idMeal,
+      type: inPro.strMeal,
+      nationality: inPro.strArea,
+      category: inPro.strCategory,
+      name: inPro.strMeal,
+      image: inPro.strMealThumb,
+      doneDate: Date(),
+      tags: inPro.strTags,
+      link: url,
+      copyLink: copiedLink,
+    };
+    if (doneRecipes) {
+      const getObjectDone = [...doneRecipes, doneObject];
+      localStorage.setItem('doneRecipes', JSON.stringify(getObjectDone));
+    }
+    if (!doneRecipes) {
+      localStorage.setItem('doneRecipes', JSON.stringify([doneObject]));
+    }
+  };
 
-  //   }
-  // }
+  const handleClickDrink = () => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const doneObject = {
+      typed: 'drink',
+      id: inPro.idDrink,
+      type: inPro.strGlass,
+      category: inPro.strCategory,
+      alcoholicOrNot: inPro.strAlcoholic,
+      name: inPro.strDrink,
+      image: inPro.strDrinkThumb,
+      doneDate: Date(),
+      link: url,
+      copyLink: copiedLink,
+    };
+    console.log(copiedLink);
+    if (doneRecipes) {
+      const getObjectDone = [...doneRecipes, doneObject];
+      localStorage.setItem('doneRecipes', JSON.stringify(getObjectDone));
+    }
+    if (!doneRecipes) {
+      localStorage.setItem('doneRecipes', JSON.stringify([doneObject]));
+    }
+  };
 
   const renderFood = () => (
     <div className="recipe-in-progress">
       <img
+        className="img-in-progress"
         src={ inPro.strMealThumb }
         alt="recipe_photo"
         data-testid="recipe-photo"
@@ -76,37 +104,59 @@ function RecipeInProgress() {
         onClick={ shareRecipe }
         data-testid="share-btn"
       >
-        <img src={ shareIcon } alt="share_icon" />
+        <img className="img-in-progress" src={ shareIcon } alt="share_icon" />
       </button>
       <p id="link-copied" />
-      <button
-        type="button"
+      <input
+        type="image"
+        src={ favoriteIcon }
+        alt="favorite_icon"
+        onClick={ favoriteOnClick }
         data-testid="favorite-btn"
-      >
-        favoritar
-      </button>
+      />
       <div>
         <h3>Ingredients</h3>
-        <InProgress recipeDetails={ inPro } />
+        <div className="in-progress">
+          <div className="midle">
+            {
+              arrayOfKeysIngredients.map((ingredient, index) => (
+                <CheckboxIngredients
+                  ingredient={ ingredient }
+                  index={ index }
+                  key={ index }
+                  recipeType="meals"
+                  recipeId={ inPro.idMeal }
+                  verifyAllChecked={ verifyAllChecked }
+                />
+              ))
+            }
+          </div>
+        </div>
       </div>
       <span data-testid="instructions">
         <h3>Instructions</h3>
         {inPro.strInstructions}
       </span>
-      <button
-        data-testid="finish-recipe-btn"
-        type="button"
-        onClick={ handleClick }
-        disabled={ disable }
-      >
-        Finalizar Receita
-      </button>
+      <Link to="/done-recipes">
+        <button
+          data-testid="finish-recipe-btn"
+          type="button"
+          disabled={ disable }
+          onClick={ handleClickMeal }
+        >
+          Finalizar Receita
+        </button>
+      </Link>
+
     </div>
   );
+
+  console.log(inPro);
 
   const renderDrink = () => (
     <div>
       <img
+        className="img-in-progress"
         src={ inPro.strDrinkThumb }
         alt="recipe_photo"
         data-testid="recipe-photo"
@@ -118,26 +168,49 @@ function RecipeInProgress() {
         onClick={ shareRecipe }
         data-testid="share-btn"
       >
-        <img src={ shareIcon } alt="share_icon" />
+        <img className="img-in-progress" src={ shareIcon } alt="share_icon" />
       </button>
       <p id="link-copied" />
-      <button type="button" data-testid="favorite-btn">favoritar</button>
+      <input
+        type="image"
+        src={ favoriteIcon }
+        alt="favorite_icon"
+        onClick={ favoriteOnClick }
+        data-testid="favorite-btn"
+      />
       <div>
         <h3>Ingredients</h3>
-        <InProgress recipeDetails={ inPro } />
+        <div className="in-progress">
+          <div className="midle">
+            {
+              arrayOfKeysIngredients.map((ingredient, index) => (
+                <CheckboxIngredients
+                  ingredient={ ingredient }
+                  index={ index }
+                  key={ index }
+                  recipeType="cocktails"
+                  recipeId={ inPro.idDrink }
+                  verifyAllChecked={ verifyAllChecked }
+                />
+              ))
+            }
+          </div>
+        </div>
       </div>
       <span data-testid="instructions">
         <h3>Instructions</h3>
         {inPro.strInstructions}
       </span>
-      <button
-        data-testid="finish-recipe-btn"
-        type="button"
-        onClick={ handleClick }
-        disabled={ !stateAllChecked }
-      >
-        Finalizar Receita
-      </button>
+      <Link to="/done-recipes">
+        <button
+          data-testid="finish-recipe-btn"
+          type="button"
+          disabled={ disable }
+          onClick={ handleClickDrink }
+        >
+          Finalizar Receita
+        </button>
+      </Link>
     </div>
   );
   // console.log(inPro);

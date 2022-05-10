@@ -74,7 +74,8 @@ function RecipeDetailsProvider({ children }) {
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     if (doneRecipes) {
       const foundDoneRecipe = doneRecipes.find((doneRecipe) => (
-        doneRecipe.id === recipeDetail.idMeal || doneRecipe.id === recipeDetail.idDrink
+        doneRecipe.name === recipeDetail.strMeal
+        || doneRecipe.name === recipeDetail.strDrink
       ));
       if (foundDoneRecipe) {
         setStartRecipe(false);

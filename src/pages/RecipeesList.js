@@ -23,7 +23,7 @@ function RecipeesList() {
   }, [location.pathname]);
 
   return (
-    <div className="recipes polka">
+    <div className="recipes">
       {title
         ? <Header title={ title } />
         : ''}

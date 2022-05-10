@@ -5,15 +5,14 @@
   display: flex;
   justify-content: space-around;
   padding: 6px 0;
-  position: fixed;
+  /* position: fixed; */
   text-align: center;
   width: 100%;
 
 }
 
 .profile {
-  height: 17px;
-  width: 10px;
+  filter: invert(100%);
 }
 
 .profilebtn {
@@ -29,8 +28,9 @@
 }
 
 .search {
-  height: 17px;
-  width: 10px;
+  filter: invert(100%);
+  /* height: 17px;
+  width: 10px; */
 }
 
 .invisiblebtn {

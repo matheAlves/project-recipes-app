@@ -1,8 +1,44 @@
+.recipeDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+}
+
+.recipeTitleAndIcons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipeIcons {
+  display: flex;
+}
+
+.recipeCategory {
+  color: rgba(196, 196, 196, 0.85);
+  font-weight: 800;
+  margin: 0 0 10px;
+  padding-left: 0;
+}
+
+.recipeIngredients {
+  background-color: rgba(196, 196, 196, 0.85);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  padding: 1%;
+}
+
+.recipeInstructions {
+  background-color: rgba(196, 196, 196, 0.85);
+  border-radius: 6px;
+  padding: 1%;
+}
+
 .horizontalScroll {
   display: flex;
-  flex-direction: row;
-  overflow: scroll;
-  width: 360px;
+  overflow: auto;
+  width: 1080px;
 }
 
 .btnStartRecipe {
@@ -10,3 +46,4 @@
   bottom: 0;
   position: fixed;
 }
+
