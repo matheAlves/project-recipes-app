@@ -7,18 +7,18 @@ function DoneRecipeCard(props) {
   const { recipe, index } = props;
 
   const shareRecipe = () => {
-    const { link } = recipe;
+    const link = `http://localhost:3000/foods/${recipe.id}`;
     document.getElementById('link-copied').innerHTML = 'Link copied!';
     return (navigator.clipboard.writeText(link));
   };
 
   const shareRecipeDrink = () => {
-    const { link } = recipe;
+    const link = `http://localhost:3000/drinks/${recipe.id}`;
     document.getElementById('link-copiede').innerHTML = 'Link copied!';
     return (navigator.clipboard.writeText(link));
   };
 
-  if (recipe.typed === 'meal') {
+  if (recipe.image.includes('themealdb')) {
     return (
       <div key={ recipe.name }>
         <Link to={ recipe.copyLink }>
@@ -72,7 +72,7 @@ function DoneRecipeCard(props) {
       // ))
     );
   }
-  if (recipe.typed === 'drink') {
+  if (recipe.image.includes('thecocktaildb')) {
     return (
       <div key={ recipe.name }>
         <Link to={ recipe.copyLink }>

@@ -40,6 +40,7 @@ function RecipeInProgress() {
     setDisable(!allChecked(recipeType, recipeId, arrayOfKeysIngredients));
   };
 
+  console.log(inPro);
   const handleClickMeal = () => {
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     const doneObject = {
@@ -68,7 +69,7 @@ function RecipeInProgress() {
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     const doneObject = {
       typed: 'drink',
-      id: inPro.Drink,
+      id: inPro.idDrink,
       type: inPro.strGlass,
       category: inPro.strCategory,
       alcoholicOrNot: inPro.strAlcoholic,

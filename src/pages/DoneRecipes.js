@@ -4,14 +4,13 @@ import DoneRecipeCard from '../components/DoneRecipeCard';
 import Header from '../components/Header';
 
 function DoneRecipes() {
-  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
-  const [dones, setDones] = useState(doneRecipes);
+  const [dones, setDones] = useState();
+  console.log(dones);
 
   useEffect(() => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     setDones(doneRecipes);
-  }, [doneRecipes]);
-
-  console.log(dones);
+  }, []);
 
   return (
     <div>
@@ -56,5 +55,4 @@ function DoneRecipes() {
     </div>
   );
 }
-
 export default DoneRecipes;
