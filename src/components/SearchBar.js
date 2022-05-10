@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import Context from '../context/Context';
+import './SearchBar.css';
 
 function SearchBar() {
   const { handleSearchInput, selectedRadio, setSelected,
@@ -23,7 +24,7 @@ function SearchBar() {
             />
           </label>
         </div>
-        <div>
+        <div className="search-inputs-container">
           <label htmlFor="ingredient-search-radio">
             <input
               type="radio"
@@ -59,6 +60,7 @@ function SearchBar() {
           </label>
         </div>
         <button
+          className="main-search-btn"
           type="button"
           data-testid="exec-search-btn"
           onClick={ () => handleClickSearch(location.pathname) }

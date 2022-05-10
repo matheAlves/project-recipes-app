@@ -1,12 +1,14 @@
 .nav {
   align-items: center;
-  background-color: brown;
+  background-color: rgba(165, 42, 42, 0.98);
   color: azure;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 5px;
+  padding: 6px 0;
+  position: fixed;
   text-align: center;
   width: 100%;
+
 }
 
 .profile {

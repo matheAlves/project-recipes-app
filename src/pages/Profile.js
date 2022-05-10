@@ -24,8 +24,8 @@ function Profile() {
   return (
     <div className="profilepage">
       <Header title="Profile" />
-      <h3 data-testid="profile-email" className="email">{ user }</h3>
       <div className="profilebtns">
+        <h3 data-testid="profile-email" className="email">{ user }</h3>
         <button
           type="button"
           className="donebtn"

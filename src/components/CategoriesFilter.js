@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Context from '../context/Context';
-// import './CategoriesFilters.css';
+import './CategoriesFilters.css';
 
 function CategoriesFilter() {
   const {

@@ -63,7 +63,7 @@ function RecipeInProgress() {
   // }
 
   const renderFood = () => (
-    <div>
+    <div className="recipe-in-progress">
       <img
         src={ inPro.strMealThumb }
         alt="recipe_photo"

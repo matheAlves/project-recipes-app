@@ -1,13 +1,15 @@
-.filter-buttons {
+.search-inputs-container {
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-evenly;
-  margin: 0;
-  margin-top: 77px;
-  width: 100%;
+  margin-top: 5px;
+  width: 80vw;
 }
 
-.category-button {
+.search-inputs-container input {
+  margin-right: 3px;
+}
+
+.main-search-btn {
   border: 1 solid;
   box-shadow: 1px 1px 0 0 , 2px 2px 0 0 , 3px 3px 0 0;
   color: black;
@@ -15,15 +17,12 @@
   font-family: Open Sans , sans-serif;
   font-size: 14px;
   font-weight: 600;
-  height: 50px;
+  height: 35px;
   letter-spacing: 2px;
   margin-bottom: 7px;
+  margin-top: 5px;
   padding: 0;
   text-transform: uppercase;
   transition: background-color 0.35s;
   width: 30%;
-}
-
-.selected {
-  background-color: rgb(255, 238, 70);
 }
