@@ -35,6 +35,11 @@
   padding: 1%;
 }
 
+.recipe-video {
+  height: 315px;
+  width: 100%;
+}
+
 .horizontalScroll {
   display: flex;
   overflow: auto;
@@ -42,17 +47,28 @@
 }
 
 .btnStartRecipe {
-  background-color: aliceblue;
-  border: solid 1px brown;
-  border-radius: 13%;
-  box-shadow: inset 0 0 1em rgb(199, 216, 231) , 0 0 1em red;
-  color: brown;
-  margin-bottom: 15px;
-  margin-left: 85px;
-  width: 135px;
+  border: 1 solid;
+  border-radius: 5.5%;
+  bottom: 0;
+  box-shadow: 1px 1px 0 0 , 2px 2px 0 0 , 3px 3px 0 0;
+  color: black;
+  cursor: pointer;
+  font-family: Open Sans , sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 50px;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+  position: fixed;
+  text-transform: uppercase;
+  transition: background-color 0.35s;
+  width: 50%;
 }
 
 .bottom {
+  bottom: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 100%;
 }
