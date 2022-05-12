@@ -49,7 +49,7 @@ function Login() {
   return (
 
     <div className="login-screen">
-      <h1>App de Receitas</h1>
+      <h1>Recipes App</h1>
 
       <form>
         <h2>Login</h2>

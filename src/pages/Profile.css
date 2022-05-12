@@ -6,16 +6,17 @@
 
 .email {
   margin-top: 15px;
-  font-size: large;
+  font-size: 30px;
+  text-decoration: solid;
 }
 
 .profilebtns {
+  align-self: center;
   text-align: center;
   flex-flow: column wrap;
   padding: 60px;
-  width: 300px;
+  width: 100vw;
   margin: 0;
-  width: 100%;
 }
 
 .profile-btn {

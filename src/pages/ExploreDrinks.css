@@ -1,30 +1,38 @@
 .exploredrink {
   background-color: rgb(247, 247, 231);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .drinkbtns {
-  background-color: rgb(248, 248, 217);
+  margin-top: -100px;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
 }
 
-.ingredientbtn {
-  background-color: aliceblue;
-  border: solid 1px brown;
-  border-radius: 13%;
-  box-shadow: inset 0 0 1em rgb(199, 216, 231) , 0 0 1em red;
-  color: brown;
-  margin: 10px 20px 15px 40px;
-  width: 109px;
-}
-
-.surprisebtn {
-  background-color: aliceblue;
-  border: solid 1px brown;
-  border-radius: 13%;
-  box-shadow: inset 0 0 1em rgb(199, 216, 231) , 0 0 1em red;
-  color: brown;
-  width: 109px;
+.explore-drinks-btn {
+  border: 1 solid;
+  box-shadow: 1px 1px 0 0 , 2px 2px 0 0 , 3px 3px 0 0;
+  color: black;
+  cursor: pointer;
+  font-family: Open Sans , sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 65px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 20px;
+  text-transform: uppercase;
+  transition: background-color 0.35s;
+  align-items: center;
+  width: 100%;
 }
 
 .drink {
-  width: 100%;
+  width: 80%;
 }

@@ -17,29 +17,31 @@ function ExploreDrinks() {
     history.push(`/drinks/${response[0].idDrink}`);
   };
   return (
-    <div className="exploredrink">
+    <>
       <Header title="Explore Drinks" />
-      <div className="drinkbtns">
-        <button
-          type="button"
-          className="ingredientbtn"
-          data-testid="explore-by-ingredient"
-          onClick={ () => history.push('/explore/drinks/ingredients') }
-        >
-          By Ingredient
-        </button>
-        <button
-          type="button"
-          className="surprisebtn"
-          data-testid="explore-surprise"
-          onClick={ () => getDrinkRecipe() }
-        >
-          Surprise me!
-        </button>
+      <div className="exploredrink">
+        <div className="drinkbtns">
+          <button
+            type="button"
+            className="explore-drinks-btn"
+            data-testid="explore-by-ingredient"
+            onClick={ () => history.push('/explore/drinks/ingredients') }
+          >
+            By Ingredient
+          </button>
+          <button
+            type="button"
+            className="explore-drinks-btn"
+            data-testid="explore-surprise"
+            onClick={ () => getDrinkRecipe() }
+          >
+            Surprise me!
+          </button>
+        </div>
+        <img className="drink" src={ drink } alt="drink" />
+        <Footer />
       </div>
-      <img className="drink" src={ drink } alt="drink" />
-      <Footer />
-    </div>
+    </>
   );
 }
 

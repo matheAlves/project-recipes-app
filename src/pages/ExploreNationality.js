@@ -3,6 +3,7 @@ import { apiNationalitiesList, apiName, apiByNationality } from '../services/api
 import RecipeeCard from '../components/RecipeeCard';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import './ExploreNationality.css';
 
 function ExploreNationality() {
   const [nationalities, setNationalities] = useState([]);
@@ -44,30 +45,37 @@ function ExploreNationality() {
   }, []);
 
   return (
-    <div>
+    <div className="main-explore-nat">
       <Header title="Explore Nationalities" />
       {nationalities
         ? (
-          <select
-            data-testid="explore-by-nationality-dropdown"
-            onChange={ select }
-          >
-            <option
-              value="All"
-              data-testid="All-option"
+          <>
+            {' '}
+            <span>
+              Nationality:
+            </span>
+            <select
+              data-testid="explore-by-nationality-dropdown"
+              onChange={ select }
             >
-              All
-            </option>
-            {nationalities.map((nationality) => (
               <option
-                key={ nationality.strArea }
-                value={ nationality.strArea }
-                data-testid={ `${nationality.strArea}-option` }
+                value="All"
+                data-testid="All-option"
               >
-                {nationality.strArea}
+                All
+              </option>
+              {nationalities.map((nationality) => (
+                <option
+                  key={ nationality.strArea }
+                  value={ nationality.strArea }
+                  data-testid={ `${nationality.strArea}-option` }
+                >
+                  {nationality.strArea}
 
-              </option>))}
-          </select>)
+                </option>))}
+            </select>
+          </>
+        )
         : ''}
       {recipes.length
         ? (

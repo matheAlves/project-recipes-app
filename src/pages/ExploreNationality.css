@@ -1,0 +1,13 @@
+.main-explore-nat {
+  text-align: center;
+}
+
+.main-explore-nat select {
+  margin-top: 5px;
+  font-size: large;
+  margin-left: 5px;
+}
+
+.recipe-card {
+  text-align: start;
+}

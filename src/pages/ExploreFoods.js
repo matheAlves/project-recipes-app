@@ -18,37 +18,39 @@ function ExploreFoods() {
     history.push(`/foods/${idFood}`);
   };
   return (
-    <div className="explorefood">
+    <>
       <Header title="Explore Foods" />
-      <div className="foodbtns">
-        <button
-          type="button"
-          className="ingredientfoodbtn"
-          data-testid="explore-by-ingredient"
-          onClick={ () => history.push('/explore/foods/ingredients') }
-        >
-          By Ingredient
-        </button>
-        <button
-          type="button"
-          className="nationalityfoodbtn"
-          data-testid="explore-by-nationality"
-          onClick={ () => history.push('/explore/foods/nationalities') }
-        >
-          By Nationality
-        </button>
-        <button
-          type="button"
-          className="surprisefoodbtn"
-          data-testid="explore-surprise"
-          onClick={ () => getFoodRecipe() }
-        >
-          Surprise me!
-        </button>
+      <div className="explorefood">
+        <div className="foodbtns">
+          <button
+            type="button"
+            className="explore-food-button"
+            data-testid="explore-by-ingredient"
+            onClick={ () => history.push('/explore/foods/ingredients') }
+          >
+            By Ingredient
+          </button>
+          <button
+            type="button"
+            className="explore-food-button"
+            data-testid="explore-by-nationality"
+            onClick={ () => history.push('/explore/foods/nationalities') }
+          >
+            By Nationality
+          </button>
+          <button
+            type="button"
+            className="explore-food-button"
+            data-testid="explore-surprise"
+            onClick={ () => getFoodRecipe() }
+          >
+            Surprise me!
+          </button>
+        </div>
+        <img className="food" src={ food } alt="food" />
+        <Footer />
       </div>
-      <img className="food" src={ food } alt="food" />
-      <Footer />
-    </div>
+    </>
   );
 }
 

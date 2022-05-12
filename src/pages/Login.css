@@ -1,58 +1,77 @@
+/* body {
+  background-image: url('https://images.pexels.com/photos/4033634/pexels-photo-4033634.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-size: 100vw 100vh;
+} */
+
+.login-screen input {
+  align-self: center;
+  border: none;
+  height: 30px;
+  outline: none;
+  width: 70%;
+}
+
 .login-screen {
+  background-image: url('https://images.pexels.com/photos/4033634/pexels-photo-4033634.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-size: 125vw 100vh;
   display: flex;
   flex-direction: column;
   font-family: Open Sans , sans-serif;
-  height: 600px;
+  height: 100vh;
+  width: 100vw;
   justify-content: space-evenly;
   text-align: center;
 }
 
 .login-screen h1 {
+  margin-top: -10px;
   align-self: center;
-  font-size: 36px;
-  font-weight: 400;
+  word-wrap: break-word;
+  color: brown;
+  text-shadow: 4px 3px 5px rgb(230, 219, 186);
+  font-family: Lobster , sans-serif;
+  font-size: 58px;
+  width: 250px;
+  font-weight: 600;
   letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
 .login-screen h2 {
+  margin-top: 10px;
   align-self: center;
-  font-size: 20.8px;
+  font-family: Square Peg , sans-serif;
+  font-size: 44px;
   font-weight: 400;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .login-screen form {
   display: flex;
   flex-direction: column;
   height: 30%;
-  justify-content: space-between;
-  margin: 0;
+  justify-content: space-around;
+  margin-top: 20px;
   text-align: center;
+  margin-left: 70px;
 }
 
-.login-screen input {
-  align-self: center;
-  border: 2px solid;
-  box-shadow: 1px 1px 0 0 , 2px 2px 0 0 , 3px 3px 0 0 , 4px 4px 0 0;
-  height: 58px;
-  margin-top: 10px;
-  outline: none;
-  width: 290px;
-}
 
 .login-screen button {
   align-self: center;
-  background-color: #6ce34f;
+  border-radius: 3%;
+  background-color: brown;
   border-style: none;
-  box-shadow: 1px 1px 0 0 , 2px 2px 0 0 , 3px 3px 0 0 , 4px 4px 0 0;
-  height: 66px;
-  margin-top: 20px;
+  color: white;
+  font-weight: 600;
+  height: 50px;
+  margin-top: 10px;
   transition: background-color 0.35s;
-  width: 290px;
+  width: 150px;
+  margin-left: 80px;
+  margin-bottom: 50px;
 }
 
 .login-screen button:disabled {
-  background-color: #6de34f67;
   transition: background-color 0.4s;
+  background-color: rgba(165, 42, 42, 0.203);
 }
