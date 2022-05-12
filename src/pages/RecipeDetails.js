@@ -40,6 +40,7 @@ function RecipeDetails() {
         data-testid={ `${index}-ingredient-name-and-measure` }
       >
         { value }
+        -
         { recipeDetails['strMeasure'.concat(index + 1)] }
       </span>
     ));
@@ -93,8 +94,7 @@ function RecipeDetails() {
       </span>
       <h3>Video</h3>
       <iframe
-        width="560"
-        height="315"
+        className="recipe-video"
         src={ recipeVideo() }
         title="YouTube video player"
         frameBorder="0"
