@@ -18,7 +18,7 @@ function RecipeInProgress() {
   }, [location.pathname]);
 
   const copiedLink = location.pathname.replace('/in-progress', '');
-  const url = 'http://localhost:3000'.concat(copiedLink);
+  const url = 'http://mathealves.github.io'.concat(copiedLink);
   console.log(copiedLink);
 
   const shareRecipe = () => {
@@ -137,7 +137,7 @@ function RecipeInProgress() {
         <h3>Instructions</h3>
         {inPro.strInstructions}
       </span>
-      <Link to="/done-recipes">
+      <Link to="/project-recipes-app/done-recipes">
         <button
           data-testid="finish-recipe-btn"
           type="button"
@@ -201,7 +201,7 @@ function RecipeInProgress() {
         <h3>Instructions</h3>
         {inPro.strInstructions}
       </span>
-      <Link to="/done-recipes">
+      <Link to="/project-recipes-app/done-recipes">
         <button
           data-testid="finish-recipe-btn"
           type="button"

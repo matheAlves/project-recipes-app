@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
@@ -14,7 +15,7 @@ function ExploreDrinks() {
   };
   const getDrinkRecipe = async () => {
     const response = await fetchDrinksRecide();
-    history.push(`/drinks/${response[0].idDrink}`);
+    history.push(`/project-recipes-app/drinks/${response[0].idDrink}`);
   };
   return (
     <>
@@ -25,7 +26,7 @@ function ExploreDrinks() {
             type="button"
             className="explore-drinks-btn"
             data-testid="explore-by-ingredient"
-            onClick={ () => history.push('/explore/drinks/ingredients') }
+            onClick={ () => history.push('/project-recipes-app/explore/drinks/ingredients') }
           >
             By Ingredient
           </button>

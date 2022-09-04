@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
@@ -15,7 +16,7 @@ function ExploreFoods() {
   const getFoodRecipe = async () => {
     const foodRecipe = await fetchFoodRecide();
     const idFood = foodRecipe[0].idMeal;
-    history.push(`/foods/${idFood}`);
+    history.push(`/project-recipes-app/foods/${idFood}`);
   };
   return (
     <>
@@ -26,7 +27,7 @@ function ExploreFoods() {
             type="button"
             className="explore-food-button"
             data-testid="explore-by-ingredient"
-            onClick={ () => history.push('/explore/foods/ingredients') }
+            onClick={ () => history.push('/project-recipes-app/explore/foods/ingredients') }
           >
             By Ingredient
           </button>
@@ -34,7 +35,7 @@ function ExploreFoods() {
             type="button"
             className="explore-food-button"
             data-testid="explore-by-nationality"
-            onClick={ () => history.push('/explore/foods/nationalities') }
+            onClick={ () => history.push('/project-recipes-app/explore/foods/nationalities') }
           >
             By Nationality
           </button>

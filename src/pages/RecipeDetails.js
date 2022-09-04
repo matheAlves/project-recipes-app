@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Context from '../context/Context';
@@ -47,7 +48,7 @@ function RecipeDetails() {
   };
 
   const shareRecipe = () => {
-    const url = 'http://localhost:3000'.concat(location.pathname);
+    const url = 'http://mathealves.github.io'.concat(location.pathname);
     navigator.clipboard.writeText(url);
     document.getElementById('link-copied').innerHTML = 'Link copied!';
   };
@@ -112,7 +113,7 @@ function RecipeDetails() {
       { startRecipe
         && (
           <div className="bottom">
-            <Link to={ `/foods/${recipeDetails.idMeal}/in-progress` }>
+            <Link to={ `/project-recipes-app/foods/${recipeDetails.idMeal}/in-progress` }>
               <button
                 type="button"
                 data-testid="start-recipe-btn"
@@ -172,7 +173,7 @@ function RecipeDetails() {
       { startRecipe
         && (
           <div className="bottom">
-            <Link to={ `/drinks/${recipeDetails.idDrink}/in-progress` }>
+            <Link to={ `/project-recipes-app/drinks/${recipeDetails.idDrink}/in-progress` }>
               <button
                 type="button"
                 data-testid="start-recipe-btn"

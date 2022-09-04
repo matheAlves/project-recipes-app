@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
@@ -8,11 +10,11 @@ import SearchBar from './SearchBar';
 
 function Header({ title }) {
   const [showSearch, setshowSearch] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
   return (
     <header>
       <nav className="nav">
-        <Link to="/profile">
+        <Link to="/project-recipes-app/profile">
           <img
             className="profile"
             src={ profileIcon }

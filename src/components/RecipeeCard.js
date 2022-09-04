@@ -10,7 +10,7 @@ function RecipeeCard(props) {
   if (location.pathname.includes('foods')) {
     const { meal: { strMeal, strMealThumb, idMeal } } = props;
     return (
-      <Link to={ `/foods/${idMeal}` } className="recipe-card">
+      <Link to={ `/project-recipes-app/foods/${idMeal}` } className="recipe-card">
         <li
           data-testid={ `${index}-recipe-card` }
         >
@@ -31,7 +31,7 @@ function RecipeeCard(props) {
   } if (location.pathname.includes('drinks')) {
     const { meal: { strDrink, strDrinkThumb, idDrink } } = props;
     return (
-      <Link to={ `/drinks/${idDrink}` } className="recipe-card">
+      <Link to={ `/project-recipes-app/drinks/${idDrink}` } className="recipe-card">
         <li
           data-testid={ `${index}-recipe-card` }
         >

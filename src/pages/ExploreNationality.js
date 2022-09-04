@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { apiNationalitiesList, apiName, apiByNationality } from '../services/apiFood';
 import RecipeeCard from '../components/RecipeeCard';

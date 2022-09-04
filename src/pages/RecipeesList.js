@@ -14,7 +14,7 @@ function RecipeesList() {
 
   useEffect(() => {
     initialRender(location.pathname);
-    if (location.pathname.includes('food')) {
+    if (location.pathname.includes('foods')) {
       setTitle('Foods');
     } if (location.pathname.includes('drinks')) {
       setTitle('Drinks');

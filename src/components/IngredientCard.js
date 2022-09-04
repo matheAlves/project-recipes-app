@@ -12,9 +12,9 @@ function IngredientCard(props) {
   function redirect({ target }) {
     selectIngredient(target.alt);
     if (type === 'food') {
-      history.push('/foods');
+      history.push('/project-recipes-app/foods');
     } if (type === 'drink') {
-      history.push('/drinks');
+      history.push('/project-recipes-app/drinks');
     }
   }
 

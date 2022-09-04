@@ -25,53 +25,53 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/"
+          path="/project-recipes-app/"
           component={ Login }
           // render={ (props) => (<Provider><Login { ...props } /></Provider>) }
         />
         <Route
           exact
-          path="/profile"
+          path="/project-recipes-app/profile"
           component={ Profile }
         />
         <Route
           exact
-          path="/foods"
+          path="/project-recipes-app/foods"
           component={ RecipeesList }
         />
         <Route
           exact
-          path="/drinks"
+          path="/project-recipes-app/drinks"
           component={ RecipeesList }
         />
         <Route
           exact
-          path="/explore"
+          path="/project-recipes-app/explore"
           component={ Explore }
         />
         <Route
           exact
-          path="/explore/foods"
+          path="/project-recipes-app/explore/foods"
           component={ ExploreFoods }
         />
         <Route
           exact
-          path="/explore/foods/ingredients"
+          path="/project-recipes-app/explore/foods/ingredients"
           component={ ExploreIngredients }
         />
         <Route
           exact
-          path="/explore/foods/nationalities"
+          path="/project-recipes-app/explore/foods/nationalities"
           component={ ExploreNationality }
         />
         <Route
           exact
-          path="/explore/drinks"
+          path="/project-recipes-app/explore/drinks"
           component={ ExploreDrinks }
         />
         <Route
           exact
-          path="/foods/:id"
+          path="/project-recipes-app/foods/:id"
         >
           <RecipeDetailsProvider>
             <RecipeDetails />
@@ -79,7 +79,7 @@ function App() {
         </Route>
         <Route
           exact
-          path="/drinks/:id"
+          path="/project-recipes-app/drinks/:id"
         >
           <RecipeDetailsProvider>
             <RecipeDetails />
@@ -88,7 +88,7 @@ function App() {
 
         <Route
           exact
-          path="/drinks/:id/in-progress"
+          path="/project-recipes-app/drinks/:id/in-progress"
         >
           <IngredientsProvider>
             <RecipeInProgress />
@@ -96,7 +96,7 @@ function App() {
         </Route>
         <Route
           exact
-          path="/foods/:id/in-progress"
+          path="/project-recipes-app/foods/:id/in-progress"
         >
           <IngredientsProvider>
             <RecipeInProgress />
@@ -104,17 +104,17 @@ function App() {
         </Route>
         <Route
           exact
-          path="/explore/drinks/ingredients"
+          path="/project-recipes-app/explore/drinks/ingredients"
           component={ ExploreIngredients }
         />
         <Route
           exact
-          path="/done-recipes"
+          path="/project-recipes-app/done-recipes"
           component={ DoneRecipes }
         />
         <Route
           exact
-          path="/favorite-recipes"
+          path="/project-recipes-app/favorite-recipes"
           component={ FavoriteRecipes }
         />
         <Route

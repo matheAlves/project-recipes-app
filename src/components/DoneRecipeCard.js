@@ -8,13 +8,13 @@ function DoneRecipeCard(props) {
   const { recipe, index } = props;
 
   const shareRecipe = () => {
-    const link = `http://localhost:3000/foods/${recipe.id}`;
+    const link = `https://mathealves.github.io/project-recipes-app/foods/${recipe.id}`;
     document.getElementById('link-copied').innerHTML = 'Link copied!';
     return (navigator.clipboard.writeText(link));
   };
 
   const shareRecipeDrink = () => {
-    const link = `http://localhost:3000/drinks/${recipe.id}`;
+    const link = `https://mathealves.github.io/project-recipes-app/drinks/${recipe.id}`;
     document.getElementById('link-copiede').innerHTML = 'Link copied!';
     return (navigator.clipboard.writeText(link));
   };
@@ -22,7 +22,7 @@ function DoneRecipeCard(props) {
   if (recipe.image.includes('themealdb')) {
     return (
       <div key={ recipe.name } className="recipe-card">
-        <Link to={ `/foods/${recipe.id}` }>
+        <Link to={ `/project-recipes-app/foods/${recipe.id}` }>
           <img
             src={ recipe.image }
             alt="recipe"
@@ -36,7 +36,7 @@ function DoneRecipeCard(props) {
           {' '}
           {recipe.category}
         </p>
-        <Link to={ `/foods/${recipe.id}` }>
+        <Link to={ `/project-recipes-app/foods/${recipe.id}` }>
           <h2 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h2>
         </Link>
         <p data-testid={ `${index}-horizontal-done-date` }>
@@ -76,7 +76,7 @@ function DoneRecipeCard(props) {
   if (recipe.image.includes('thecocktaildb')) {
     return (
       <div key={ recipe.name } className="recipe-card">
-        <Link to={ `/drinks/${recipe.id}` }>
+        <Link to={ `/project-recipes-app/drinks/${recipe.id}` }>
           <img
             src={ recipe.image }
             alt="recipe"
@@ -88,7 +88,7 @@ function DoneRecipeCard(props) {
           {' '}
           {recipe.category}
         </p>
-        <Link to={ `/drinks/${recipe.id}` }>
+        <Link to={ `/project-recipes-app/drinks/${recipe.id}` }>
           <h2 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h2>
         </Link>
         <p data-testid={ `${index}-horizontal-done-date` }>

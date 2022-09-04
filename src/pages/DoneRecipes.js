@@ -14,7 +14,7 @@ function DoneRecipes() {
   return (
     <div>
       <Header title="Done Recipes" />
-      <Link to="/done-recipes">
+      <Link to="/project-recipes-app/done-recipes">
         <button
           type="button"
           data-testid="filter-by-all-btn"

@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -50,9 +52,9 @@ function Provider({ children }) {
 
   function typeCheck(pathname) {
     setLoading(true);
-    if (pathname === '/foods') {
+    if (pathname === '/project-recipes-app/foods') {
       setIdType('idMeal');
-    } else if (pathname === '/drinks') {
+    } else if (pathname === '/project-recipes-app/drinks') {
       setIdType('idDrink');
     }
     setLoading(false);
@@ -60,23 +62,23 @@ function Provider({ children }) {
 
   const fetchCategories = async () => {
     setLoading(true);
-    if (location.pathname === '/foods') {
+    if (location.pathname === '/project-recipes-app/foods') {
       const mealCategories = await apiMealCategories();
       setCategories(mealCategories);
-    } if (location.pathname === '/drinks') {
+    } if (location.pathname === '/project-recipes-app/drinks') {
       const drinkCategories = await apiDrinkCategories();
       setCategories(drinkCategories);
     }
   };
 
   const initialRender = async (foodOrDrink) => {
-    if (foodOrDrink === '/foods') {
+    if (foodOrDrink === '/project-recipes-app/foods') {
       const returnApi = await apiName('');
       if (selectedIngredient) {
         const filteredMeals = await apiIngredient(selectedIngredient);
         setData(trimArray(filteredMeals));
       } else { setData(trimArray(returnApi)); }
-    } else if (foodOrDrink === '/drinks') {
+    } else if (foodOrDrink === '/project-recipes-app/drinks') {
       const returnApi = await apiDrinkName('');
       if (selectedIngredient) {
         const filteredDrinks = await apiDrinkIngredient(selectedIngredient);
@@ -95,10 +97,10 @@ function Provider({ children }) {
     if (target.innerText !== selectedCategory) {
       setSelectedCategory(target.innerText);
       setSearchByCategory(true);
-      if (location.pathname === '/foods') {
+      if (location.pathname === '/project-recipes-app/foods') {
         const meals = await apiMealsByCategory(target.innerText);
         setData(trimArray(meals));
-      } else if (location.pathname === '/drinks') {
+      } else if (location.pathname === '/project-recipes-app/drinks') {
         const drinks = await apiDrinksByCategory(target.innerText);
         setData(trimArray(drinks));
       }
@@ -182,11 +184,11 @@ function Provider({ children }) {
 
   const handleClickSearch = (searchType) => {
     setSearchByCategory(false);
-    if (searchType === '/foods') {
+    if (searchType === '/project-recipes-app/foods') {
       searchFoodApi();
       setSelectedCategory('');
     }
-    if (searchType === '/drinks') {
+    if (searchType === '/project-recipes-app/drinks') {
       searchDrinkApi();
       setSelectedCategory('');
     }
@@ -194,18 +196,18 @@ function Provider({ children }) {
 
   useEffect(() => {
     if (data) {
-      if (location.pathname === '/foods' && data.length === 1 && !searchByCategory) {
+      if (location.pathname === '/project-recipes-app/foods' && data.length === 1 && !searchByCategory) {
         history.push(`/foods/${data[0].idMeal}`);
       } else if (
-        location.pathname === '/drinks' && data.length === 1 && !searchByCategory) {
+        location.pathname === '/project-recipes-app/drinks' && data.length === 1 && !searchByCategory) {
         history.push(`/drinks/${data[0].idDrink}`);
       }
     } else if (!data) {
-      if (location.pathname === '/foods') {
-        initialRender('/foods');
+      if (location.pathname === '/project-recipes-app/foods') {
+        initialRender('/project-recipes-app/foods');
       }
-      if (location.pathname === '/drinks') {
-        initialRender('/drinks');
+      if (location.pathname === '/project-recipes-app/drinks') {
+        initialRender('/project-recipes-app/drinks');
       }
     }
     setFilterSearchInput('');

@@ -15,7 +15,7 @@ function FavoriteRecipes() {
   }, []);
 
   const shareRecipe = (id) => {
-    const link = `http://localhost:3000/foods/${id}`;
+    const link = `http://mathealves.github.io/project-recipes-app/foods/${id}`;
     // document.getElementById('link-copied').innerHTML = 'Link copied!';
     return (navigator.clipboard.writeText(link));
   };
@@ -23,7 +23,7 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Favorite Recipes" />
-      <Link to="/favorite-recipes">
+      <Link to="/project-recipes-app/favorite-recipes">
         <button
           type="button"
           data-testid="filter-by-all-btn"
