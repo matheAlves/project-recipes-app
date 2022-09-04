@@ -12,7 +12,7 @@ function Profile() {
 
   const handleClick = () => {
     localStorage.clear();
-    history.push('/');
+    history.push('/project-recipes-app');
   };
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function Profile() {
           type="button"
           className="profile-btn"
           data-testid="profile-done-btn"
-          onClick={ () => history.push('/done-recipes') }
+          onClick={ () => history.push('/project-recipes-app/done-recipes') }
         >
           Done Recipes
         </button>
@@ -39,7 +39,7 @@ function Profile() {
           type="button"
           className="profile-btn"
           data-testid="profile-favorite-btn"
-          onClick={ () => history.push('/favorite-recipes') }
+          onClick={ () => history.push('/project-recipes-app/favorite-recipes') }
         >
           Favorite Recipes
         </button>
