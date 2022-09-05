@@ -4,7 +4,7 @@
 Deploy
 ------
 
- ⚠️ **Essa aplicação foi projetada para dispositivos mobile e não é adaptada para resoluções de Desktop**
+ ⚠️ **Essa aplicação foi projetada para dispositivos mobile e não é adaptada para resoluções desktop**
 
 ⚠️ **Para efetuar login, utilize um email com formato válido (exemplo@mail.com) e senha com pelo menos 7 caracteres.**
 
@@ -13,7 +13,7 @@ Deploy
 Introdução
 ----------
 
-Um app de receitas tanto de comidas como bebidas, que podem ser pesquisadas por ingrediente, nome e primeira letra, além de por categoria e nacionalidade.
+Um app de receitas tanto de comidas como bebidas, que podem ser pesquisadas por ingrediente, nome e primeira letra, além de explorar por categoria e nacionalidade.
 
 Desenvolvido em React, com uso de Context API para a transferência de dados entre os componentes, são utilizadas 2 APIs para buscar os dados:
 
