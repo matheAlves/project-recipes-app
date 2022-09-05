@@ -4,7 +4,7 @@
 Deploy
 ------
 
- ⚠️ **Essa aplicação foi projetada para dispositivos mobile e não é adaptada para resoluções desktop**
+ ⚠️ **Essa aplicação foi projetada para dispositivos mobile e não é adaptada para resoluções desktop.**
 
 ⚠️ **Para efetuar login, utilize um email com formato válido (exemplo@mail.com) e senha com pelo menos 7 caracteres.**
 
