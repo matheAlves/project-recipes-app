@@ -25,7 +25,7 @@ Um projeto desafiador feito em equipe com os colegas [Karen Cano](https://github
 
 Além de todas as funcionalidades, houve muita atenção ao visual e design do projeto, este se tratando de uma aplicação mobile, e assim tendo suas necessidades particulares neste aspecto.
 
-Uma marca positiva sobre este projeto para mim é que foi o primeiro em que bati a marca de mais de 2000 linhas de código escritas.
+Um dado pessoal positivo sobre este projeto é a contribuição com mais de 2000 linhas de código.
 
 Instalação
 ------------
@@ -36,7 +36,7 @@ Instalar as dependências
 npm install
 ```
 
-Utilização
+Rodando Localmente
 ----------
 ### Para iniciar a aplicação:
 
