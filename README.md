@@ -40,7 +40,9 @@ Utilização
 ```bash
 npm start
 ```
-Acesse em [http://localhost:3000/project-recipes-app/](http://localhost:3000/project-recipes-app/)
+De preferência utilize uma resolução mobile.
+
+Acesse em http://localhost:3000/project-recipes-app/
 
 **Para efetuar login, utilize um email com formato válido (exemplo@mail.com) e senha com pelo menos 7 caracteres.**
 
